@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:17:47 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/06/26 19:49:01 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/06/26 21:51:38 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class Contact
 
 	Contact(void);
 	~Contact(void);
+
+	void	Contact::createcontact(void);
 };
 
 #endif
