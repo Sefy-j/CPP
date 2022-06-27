@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:17:47 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/06/27 17:25:03 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:38:32 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ class Contact
 	
 	private:
 
-		std::string	fname;
-		std::string	lname;
-		std::string	nick;
-		std::string	phnbr;
-		std::string	secret;
+		std::string	_fname;
+		std::string	_lname;
+		std::string	_nick;
+		std::string	_phnbr;
+		std::string	_secret;
 
-		bool	errorcreating(int i);
+		bool	_errorcreating(int i);
 };
 
 #endif
