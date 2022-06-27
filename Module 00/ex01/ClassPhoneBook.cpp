@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 19:09:49 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/06/26 20:06:11 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:21:37 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,42 +18,38 @@ PhoneBook::~PhoneBook(void){}
 
 void	PhoneBook::add(void)
 {
-	if (this->i == 8)
-		this->i = 0;
-	std::cout << "First Name:";
-	std::cin >> this->phbook[this->i].fname;
-	std::cout << "Last Name:";
-	std::cin >> this->phbook[this->i].lname;
-	std::cout << "Nickname:";
-	std::cin >> this->phbook[this->i].nick;
-	std::cout << "Phone Number:";
-	std::cin >> this->phbook[this->i].phnbr;
-	std::cout << "Darkest Secret:";
-	std::cin >> this->phbook[this->i].secret;
-	this->i++;
+	if (i == 8)
+		i = 0;
+	if (phbook[i].createcontact())
+		i++;
 }
 
 void	PhoneBook::search(void)
 {
 	int	j;
+	std::string	str;
 
-	j = 0;
-	std::cout << "Index First Name Last Name Nickname"<< std::endl;
-	while (j < this->i)
+	if (!phbook[0].checkcontact())
 	{
-		std::cout << j <<  this->phbook[j].fname << this->phbook[j].lname << this->phbook[j].nick << std::endl;
-		j++;
+		std::cout << "Error. No contacts added yet"<< std::endl;
+		return ;
 	}
-	std::cout << "Select contact index:";
-	std::cin >> j;
-	std::cout << "First Name:";
-	std::cout << this->phbook[j].fname;
-	std::cout << "Last Name:";
-	std::cout << this->phbook[j].lname;
-	std::cout << "Nickname:";
-	std::cout << this->phbook[j].nick;
-	std::cout << "Phone Number:";
-	std::cout << this->phbook[j].phnbr;
-	std::cout << "Darkest Secret:";
-	std::cout << this->phbook[j].secret;
+	std::cout << "     Index|First Name| Last Name|  Nickname"<< std::endl;
+	for (j = 1; j <= 8; j++)
+	{
+		if(phbook[j - 1].checkcontact())
+		{
+			std::cout << std::setw(10) << j << "|";
+			phbook[j - 1].showcontactindex();
+		}
+	}
+	std::cout << "Select contact index: ";
+	if (!std::getline(std::cin, str))
+		return ;
+	if (str[0] < '1' || str[0] > '8' || str[1] != '\0' || !phbook[str[0] - '0' - 1].checkcontact())
+	{
+		std::cout << "Error. Invalid index" << std::endl;
+		return ;
+	}
+	phbook[str[0] - '0' - 1].printcontact();
 }

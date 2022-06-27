@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:26:23 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/06/26 21:51:49 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/06/27 17:46:27 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,79 @@ Contact::Contact(void){}
 
 Contact::~Contact(void){}
 
-void	Contact::createcontact(void)
+bool	Contact::createcontact(void)
 {
-	if (this->i == 8)
-		this->i = 0;
-	std::cout << "First Name:";
-	std::cin >> this->phbook[this->i].fname;
-	std::cout << "Last Name:";
-	std::cin >> this->phbook[this->i].lname;
-	std::cout << "Nickname:";
-	std::cin >> this->phbook[this->i].nick;
-	std::cout << "Phone Number:";
-	std::cin >> this->phbook[this->i].phnbr;
-	std::cout << "Darkest Secret:";
-	std::cin >> this->phbook[this->i].secret;
-	this->i++;
+	int	i;
+
+	i = 0;
+	std::cout << "Introduce first name: ";
+	if (!std::getline(std::cin, fname))
+		return (errorcreating(1));
+	std::cout << "Introduce last name: ";
+	if (!std::getline(std::cin, lname))
+		return (errorcreating(2));
+	std::cout << "Introduce nickname: ";
+	if (!std::getline(std::cin, nick))
+		return (errorcreating(3));
+	std::cout << "Introduce phone number: ";
+	if (!std::getline(std::cin, phnbr))
+		return (errorcreating(4));
+	while(phnbr[i])
+	{
+		if (!isdigit(phnbr[i]))
+			return (errorcreating(5));
+		i++;
+	}
+	std::cout << "Introduce darkest secret: ";
+	if (!std::getline(std::cin, secret))
+		return (errorcreating(6));
+	return (true);
 }
 
-void	PhoneBook::printcontact(void)
+bool	Contact::errorcreating(int i)
 {
-	int	j;
+	if (i > 0)
+		fname.clear();
+	if (i > 1)
+		lname.clear();
+	if (i > 2)
+		nick.clear();
+	if (i > 3)
+		phnbr.clear();
+	if (i == 5)
+		std::cout << "Error. Phone number must contain only digits." << std::endl;
+	if (i > 5)
+		secret.clear();
+	return (false);
+}
+void	Contact::showcontactindex(void)
+{
+	if (fname.length() > 10)
+		std::cout << fname.substr(0, 9) << ".|";
+	else
+		std::cout << std::setw(10) << fname << "|";
+	if (lname.length() > 10)
+		std::cout << lname.substr(0, 9) << ".|";
+	else
+		std::cout << std::setw(10) << lname << "|";
+	if (nick.length() > 10)
+		std::cout << nick.substr(0, 9) << "." << std::endl;
+	else
+		std::cout << std::setw(10) << nick << std::endl;
+}
 
-	j = 0;
-	std::cout << "Index First Name Last Name Nickname"<< std::endl;
-	while (j < this->i)
-	{
-		std::cout << j <<  this->phbook[j].fname << this->phbook[j].lname << this->phbook[j].nick << std::endl;
-		j++;
-	}
-	std::cout << "Select contact index:";
-	std::cin >> j;
-	std::cout << "First Name:";
-	std::cout << this->phbook[j].fname;
-	std::cout << "Last Name:";
-	std::cout << this->phbook[j].lname;
-	std::cout << "Nickname:";
-	std::cout << this->phbook[j].nick;
-	std::cout << "Phone Number:";
-	std::cout << this->phbook[j].phnbr;
-	std::cout << "Darkest Secret:";
-	std::cout << this->phbook[j].secret;
+void	Contact::printcontact(void)
+{
+	std::cout << "First Name: " << fname << std::endl;
+	std::cout << "Last Name: " << lname << std::endl;
+	std::cout << "Nickname: " << nick << std::endl;
+	std::cout << "Phone Number: " << phnbr << std::endl;
+	std::cout << "Darkest Secret: " << secret << std::endl;
+}
+
+bool	Contact::checkcontact(void)
+{
+	if (fname.empty())
+		return (false);
+	return (true);
 }
