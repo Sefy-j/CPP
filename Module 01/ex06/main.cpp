@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 08:37:58 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/06/30 15:44:56 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/06/30 20:00:30 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	
 	if (argc != 2)
 	{
-		std::cerr << "Error. Need only one argument\n";
+		std::cout << "Error. Need only one argument\n";
 		return (1);
 	}
 	karen.complain(argv[1]);

@@ -6,13 +6,13 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 08:37:58 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/06/29 14:34:49 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/04 12:31:34 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main()
+int main(void)
 {
 	Zombie	*ptrZ;
 

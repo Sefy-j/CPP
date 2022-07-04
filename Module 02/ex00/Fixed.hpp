@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/26 08:37:58 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 12:31:28 by jlopez-f         ###   ########.fr       */
+/*   Created: 2022/06/29 14:12:45 by jlopez-f          #+#    #+#             */
+/*   Updated: 2022/07/02 07:29:54 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-int main(void)
+#include <iostream>
+
+class Fixed
 {
-	Zombie	*ptrZ;
-	int		i;
-	int		N;
+	public:
 
-	N = 10;
-	ptrZ = zombieHorde(N, "PtrHorde");
-	for (i = 0; i < N; i++)
-		ptrZ[i].announce();
-	delete [] ptrZ;
-}
+		Fixed(void);
+		Fixed(const Fixed &other);
+		~Fixed(void);
+
+		Fixed	&operator=(const Fixed &other);
+
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+
+	private:
+
+		int					_value;
+		static int const	_nbits = 8;
+};
+
+#endif

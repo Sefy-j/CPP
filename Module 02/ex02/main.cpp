@@ -6,23 +6,23 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 08:37:58 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 12:31:21 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/04 12:30:38 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Fixed.hpp"
 
-int main(void)
+int	main(void)
 {
-	std::string	string;
-	std::string	*stringPTR;
-	std::string	&stringREF = string;
+	Fixed a;
+	Fixed const b(Fixed(5.05f) * Fixed(2));
 
-	string = "HI THIS IS BRAIN";
-	stringPTR = &string;
-	std::cout << "String address:                 " << &string << std::endl;
-	std::cout << "String address through his ptr: " << stringPTR << std::endl;
-	std::cout << "String address through his ref: " << &stringREF << std::endl;
-	std::cout << "String through his ptr:         " << *stringPTR << std::endl;
-	std::cout << "String through his ref:         " << stringREF << std::endl;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max(a,b) << std::endl;
+	return (0);
 }

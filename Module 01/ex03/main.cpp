@@ -6,14 +6,14 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 08:37:58 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/06/29 20:12:58 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/04 12:31:13 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-int main()
+int main(void)
 {
 	{
 		Weapon	club("crude spiked club");

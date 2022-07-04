@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 08:37:58 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/06/30 15:14:57 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/06/30 19:59:58 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ int	ft_error(int error)
 {
 	if (error == 1)
 	{
-		std::cerr << "Error. Wrong number of arguments" << std::endl;
+		std::cout << "Error. Wrong number of arguments" << std::endl;
 		return (1);
 	}
 	if (error == 2)
 	{
-		std::cerr << "Error. Empty replace string" << std::endl;
+		std::cout << "Error. Empty replace string" << std::endl;
 		return (1);
 	}
 	if (error == 3)
 	{
-		std::cerr << "Error. Invalid file" << std::endl;
+		std::cout << "Error. Invalid file" << std::endl;
 		return (1);
 	}
 	return (1);

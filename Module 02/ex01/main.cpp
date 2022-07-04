@@ -6,23 +6,27 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 08:37:58 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 12:31:21 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/04 12:30:44 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Fixed.hpp"
 
-int main(void)
+int	main(void)
 {
-	std::string	string;
-	std::string	*stringPTR;
-	std::string	&stringREF = string;
+	Fixed		a;
+	Fixed const	b(10);
+	Fixed const	c(42.42f);
+	Fixed const	d(b);
 
-	string = "HI THIS IS BRAIN";
-	stringPTR = &string;
-	std::cout << "String address:                 " << &string << std::endl;
-	std::cout << "String address through his ptr: " << stringPTR << std::endl;
-	std::cout << "String address through his ref: " << &stringREF << std::endl;
-	std::cout << "String through his ptr:         " << *stringPTR << std::endl;
-	std::cout << "String through his ref:         " << stringREF << std::endl;
+	a = Fixed(1234.4321f);
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	return (0);
 }
