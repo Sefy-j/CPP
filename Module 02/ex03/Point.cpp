@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:26:23 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 11:15:55 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/04 16:43:32 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ Point::~Point(void)
 Point	&Point::operator=(const Point &other)
 {
 	//std::cout << "Assignation operator called" << std::endl;
-	_x = other._x;
-	_y = other._y;
+	if (this != &other)
+	{
+		_x = other._x;
+		_y = other._y;
+	}
 	return (*this);
 }
 
