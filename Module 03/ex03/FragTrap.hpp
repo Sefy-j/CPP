@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:12:45 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 21:10:05 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/04 21:09:23 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class FragTrap : virtual public ClapTrap
 
 		FragTrap	&operator=(const FragTrap &other);
 
-		void highFivesGuys(void);
+		void	attack(std::string const &target);
+		void	highFivesGuys(void);
 };
 
 std::ostream	&operator<<(std::ostream &out, const FragTrap &fragtrap);

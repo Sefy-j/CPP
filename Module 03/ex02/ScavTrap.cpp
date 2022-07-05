@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:26:23 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 19:50:24 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/04 19:50:02 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,13 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &other)
 		_guardmode = other._guardmode;
 	}
 	return (*this);
+}
+
+void	ScavTrap::attack(std::string const &target)
+{
+	std::cout << "I am Fire, I am Death! And I'll Scav you!! (";
+	std::cout << _name << " attacks " << target << " causing ";
+	std::cout << _attackdamage << " points of damage!)" << std::endl;
 }
 
 std::string	ScavTrap::getGuardmode(void) const

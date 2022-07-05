@@ -23,7 +23,7 @@ ScavTrap(), FragTrap(), _name("ClapTrap")
 
 
 DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name + "_clap_name"),
-ScavTrap(name), FragTrap(name), _name(name)
+ScavTrap(), FragTrap(), _name(name)
 {
 	_maxep = 50;
 	_energypoints = _maxep;
@@ -65,6 +65,13 @@ std::string	DiamondTrap::getClapName(void) const
 	return (_name);
 }
 
+void	DiamondTrap::whoAmI(void) const
+{
+	std::cout << "Hi! My name is " << _name << " and my original name is ";
+	std::cout << this->getName() << " and I am the best robot. Yeah, yeah, yeah, ";
+	std::cout << "I am the best robot. Ooh, ooh, here we go!" << std::endl;
+}
+
 std::ostream	&operator<<(std::ostream &out, const DiamondTrap &diamondtrap)
 {
 	std::cout << std::endl << "-------------------------------" << std::endl <<
@@ -73,6 +80,7 @@ std::ostream	&operator<<(std::ostream &out, const DiamondTrap &diamondtrap)
 		"Hitpoints: " << diamondtrap.getHitpoints() << std::endl <<
 		"Energy Points: " << diamondtrap.getEnergyPoints() << std::endl <<
 		"Attack damage: " << diamondtrap.getAttackDamage() << std::endl <<
+		"Guardmode: " << diamondtrap.getGuardmode() << std::endl <<
 		"-------------------------------" << std::endl;
 	return (out);
 }

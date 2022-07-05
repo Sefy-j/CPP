@@ -29,8 +29,7 @@ class DiamondTrap :  public ScavTrap, public FragTrap
 
 		std::string	getClapName(void) const;
 
-		using	ScavTrap::attack;
-		
+		using	ScavTrap::attack;		
 		void	whoAmI(void) const;
 	
 	private:

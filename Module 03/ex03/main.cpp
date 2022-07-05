@@ -71,7 +71,9 @@ int	main(void)
 		diam2.takeDamage(5);
 		diam2.beRepaired(3);
 		std::cout << std::endl;
-		//diam2.highFivesGuys();
+		diam2.highFivesGuys();
+		diam2.guardGate();
+		diam2.whoAmI();
 		std::cout << diam2;
 		std::cout << std::endl;
 	}

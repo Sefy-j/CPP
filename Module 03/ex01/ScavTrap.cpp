@@ -63,6 +63,13 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &other)
 	return (*this);
 }
 
+void	ScavTrap::attack(std::string const &target)
+{
+	std::cout << "I am Fire, I am Death! And I'll Scav you!! (";
+	std::cout << _name << " attacks " << target << " causing ";
+	std::cout << _attackdamage << " points of damage!)" << std::endl;
+}
+
 std::string	ScavTrap::getGuardmode(void) const
 {
 	if (_guardmode == false)

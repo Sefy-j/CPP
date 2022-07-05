@@ -26,7 +26,8 @@ class FragTrap : public ClapTrap
 
 		FragTrap	&operator=(const FragTrap &other);
 
-		void highFivesGuys(void);
+		void	attack(std::string const &target);
+		void	highFivesGuys(void);
 };
 
 std::ostream	&operator<<(std::ostream &out, const FragTrap &fragtrap);

@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:12:45 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 21:23:17 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/04 19:28:00 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ class ScavTrap : virtual public ClapTrap
 
 		std::string	getGuardmode(void) const;
 
-		void guardGate(void);
+		void	attack(std::string const &target);
+		void	guardGate(void);
 
 	protected:
 	

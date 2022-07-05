@@ -28,7 +28,8 @@ class ScavTrap : public ClapTrap
 
 		std::string	getGuardmode(void) const;
 
-		void guardGate(void);
+		void	attack(std::string const &target);
+		void	guardGate(void);
 
 	private:
 	
