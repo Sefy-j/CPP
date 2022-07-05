@@ -22,9 +22,9 @@ int main(void)
 	ptrZ = new Zombie;
 	ptrZ->announce();
 	delete ptrZ;
-	randomChump("Zombiestack");
-	Zombie Zombheap;
-	Zombheap.announce();
-	Zombheap.setname("NamedZ");
-	Zombheap.announce();
+	randomChump("Zombstack");
+	Zombie Zombstack;
+	Zombstack.announce();
+	Zombstack.setname("NamedZ");
+	Zombstack.announce();
 }
