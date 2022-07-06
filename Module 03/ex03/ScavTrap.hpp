@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:12:45 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 19:28:00 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:33:52 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap(void);
 		ScavTrap(std::string const name);
 		ScavTrap(const ScavTrap &other);
-		~ScavTrap(void);
+		virtual	~ScavTrap(void);
 
 		ScavTrap	&operator=(const ScavTrap &other);
 

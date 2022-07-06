@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:12:45 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 18:48:15 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:33:33 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ClapTrap
 		ClapTrap(void);
 		ClapTrap(std::string const name);
 		ClapTrap(const ClapTrap &other);
-		~ClapTrap(void);
+		virtual	~ClapTrap(void);
 
 		ClapTrap	&operator=(const ClapTrap &other);
 

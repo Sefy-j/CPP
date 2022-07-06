@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:12:45 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 21:09:23 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:33:47 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class FragTrap : virtual public ClapTrap
 		FragTrap(void);
 		FragTrap(std::string const name);
 		FragTrap(const FragTrap &other);
-		~FragTrap(void);
+		virtual	~FragTrap(void);
 
 		FragTrap	&operator=(const FragTrap &other);
 
