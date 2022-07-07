@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:26:23 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 18:54:53 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:11:52 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ _hitpoints(_maxhp), _energypoints(_maxep), _attackdamage(0)
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
 	*this = other;
-	if (_name.empty())
-		_name = "ClapTrap";
 	std::cout << "Copy booting sequence complete. Hello! I am your new ";
 	std::cout << "steward bot. Designation: " << _name << std::endl;
 }
