@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   ClassAMateria.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:26:23 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 18:54:53 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/09 19:52:55 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,9 @@ AMateria	&AMateria::operator=(const AMateria &other)
 const std::string	&AMateria::getType(void) const
 {
 	return (_type);
+}
+
+void	AMateria::use(ICharacter &target)
+{
+	std::cout << "* uses his " << _type << "materia against " << target.getName() << " *" << std::endl;
 }

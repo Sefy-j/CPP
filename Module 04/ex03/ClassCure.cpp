@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                       :+:      :+:    :+:   */
+/*   ClassCure.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/26 18:26:23 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 18:54:53 by jlopez-f         ###   ########.fr       */
+/*   Created: 2022/07/09 19:36:42 by jlopez-f          #+#    #+#             */
+/*   Updated: 2022/07/09 19:36:43 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ Cure::Cure(void) : AMateria("cure")
 	//std::cout << "for my wounds" << std::endl;
 }
 
-Cure::Cure(const Cure &other)
+Cure::Cure(const Cure &other) : AMateria("cure")
 {
+	(void)other;
 	//std::cout << "Cure materia was mastered!! A duplicate has appear!!" << std::endl;
 }
 
@@ -30,6 +31,7 @@ Cure::~Cure(void)
 
 Cure	&Cure::operator=(const Cure &other)
 {
+	(void)other;
 	return (*this);
 }
 

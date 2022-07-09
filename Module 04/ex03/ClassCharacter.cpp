@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                       :+:      :+:    :+:   */
+/*   ClassCharacter.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/26 18:26:23 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 18:54:53 by jlopez-f         ###   ########.fr       */
+/*   Created: 2022/07/09 19:36:17 by jlopez-f          #+#    #+#             */
+/*   Updated: 2022/07/09 20:00:43 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClassCharacter.hpp"
 
-Character::Character(void) : ICharacter(), _name("unknown")
+Character::Character(void) : ICharacter(), _name("unknown"),
+_inventory()
 {
-	int	i;
-
-	for (i = 0; i < 4; i++)
-		_inventory[i] = NULL;
 	//std::cout << "A new unknown character joins your party!!" << std::endl;
 }
 
-Character::Character(std::string const name) : ICharacter(), _name(name)
+Character::Character(std::string const name) : ICharacter(), _name(name),
+_inventory()
 {
-	int	i;
-
 	if (_name.empty())
 		_name = "unknown";
-	for (i = 0; i < 4; i++)
-		_inventory[i] = NULL;
-	//std::cout << "A new " << _type << " character joins ";
+	//std::cout << "A new " << _name << " character joins ";
 	//std::cout << "your party!!" << std::endl;
 }
 
@@ -58,7 +52,7 @@ Character	&Character::operator=(const Character &other)
 	{
 		_name = other._name;
 		for (i = 0; i < 4; i++)
-			temp[i] = *temp[i].clone(other.getMateria(i));
+			temp[i] = other.getMateria(i)->clone();
 		for (i = 0; i < 4; i++)
 		{
 			delete _inventory[i];
@@ -78,26 +72,35 @@ AMateria	*Character::getMateria(int n) const
 	return (_inventory[n]);
 }
 
-void	Character::equip(AMateria *m) const
+void	Character::equip(AMateria *m)
 {
 	int	i;
 
+	i = 0;
 	while (i < 4 && _inventory[i])
 		i++;
 	if (i == 4)
 	{
-		std::cout << "Inventory full. Please unequip a materia first" << std::endl; 
+		std::cout << "Inventory full. Please unequip a materia first" << std::endl;
 		return ;	
 	}
-	*_inventory[i] = *m;
+	_inventory[i] = m;
 }
 
 void	Character::unequip(int idx)
 {
-
+	if (idx >= 0 && idx < 4 && _inventory[idx])
+	{
+		std::cout << _inventory[idx]->getType() << " materia unequipped" << std::endl; 
+		_inventory[idx] = NULL;
+	}
 }
 
 void	Character::use(int idx, ICharacter &target)
 {
+	if (idx >= 0 && idx < 4 && _inventory[idx])
+		_inventory[idx]->use(target);
+	else
+		std::cout << "No materia equipped in that slot" << std::endl; 
 
 }

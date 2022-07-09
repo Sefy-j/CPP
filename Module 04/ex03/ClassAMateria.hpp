@@ -14,8 +14,9 @@
 # define CLASSAMATERIA_HPP
 
 #include <iostream>
-#include <string>
 #include "ClassICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                       :+:      :+:    :+:   */
+/*   ClassIce.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/26 18:26:23 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/04 18:54:53 by jlopez-f         ###   ########.fr       */
+/*   Created: 2022/07/09 19:36:49 by jlopez-f          #+#    #+#             */
+/*   Updated: 2022/07/09 19:36:50 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ Ice::Ice(void) : AMateria("ice")
 	//std::cout << "Sephiroth" << std::endl;
 }
 
-Ice::Ice(const Ice &other)
+Ice::Ice(const Ice &other) : AMateria("ice")
 {
+	(void)other;
 	//std::cout << "Ice materia was mastered!! A duplicate has appear!!" << std::endl;
 }
 
@@ -30,6 +31,7 @@ Ice::~Ice(void)
 
 Ice	&Ice::operator=(const Ice &other)
 {
+	(void)other;
 	return (*this);
 }
 

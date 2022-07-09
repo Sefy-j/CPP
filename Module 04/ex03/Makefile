@@ -1,4 +1,5 @@
-SRCS	= main.cpp ClassAMateria.cpp ClassCure.cpp ClassIce.cpp
+SRCS	= main.cpp ClassAMateria.cpp ClassCure.cpp ClassIce.cpp \
+		ClassCharacter.cpp ClassMateriaSource.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
@@ -6,13 +7,13 @@ SRCSB	=
 
 OBJB	= ${SRCSB:.cpp=.o}
 
-NAME	= abstract_animal
+NAME	= ffVII
 
 CXX	= clang++
 
 RM	= rm -f
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
 
 .c.o:
 		${CXX} ${CXXFLAGS} -c $< -o ${<:.c=.o}
