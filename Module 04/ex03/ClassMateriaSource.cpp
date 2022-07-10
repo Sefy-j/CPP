@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:37:06 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/09 19:37:07 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/10 14:50:05 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ MateriaSource::MateriaSource(void) : IMateriaSource(), _msources()
 	//std::cout << "We got a new Materia Source, now we can learn some!!" << std::endl;
 }
 
-MateriaSource::MateriaSource(const MateriaSource &other)
+MateriaSource::MateriaSource(const MateriaSource &other) : IMateriaSource(),
+_msources()
 {
 	*this = other;
 	//std::cout << "A cloned Materia Source? Could we really master a " << _name;
@@ -41,7 +42,12 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &other)
 	if (this != &other)
 	{
 		for (i = 0; i < 4; i++)
-			temp[i] = other.getMateriaSource(i)->clone();
+		{
+			if (other.getMateriaSource(i))
+				temp[i] = other.getMateriaSource(i)->clone();
+			else
+				temp[i] = NULL;
+		}
 		for (i = 0; i < 4; i++)
 		{
 			delete _msources[i];
@@ -66,8 +72,9 @@ void	MateriaSource::learnMateria(AMateria *m)
 	if (i == 4)
 	{
 		std::cout << "Materia source full" << std::endl; 
-		return ;	
+		return ;
 	}
+	//std::cout << "Learned materia " << m->getType() << " in slot " << i << std::endl;
 	_msources[i] = m;
 }
 
@@ -77,7 +84,7 @@ AMateria*	MateriaSource::createMateria(std::string const &type)
 
 	for (i = 0; i < 4; i++)
 	{
-		if (type.compare(_msources[i]->getType()))
+		if (!type.compare(_msources[i]->getType()))
 			return (_msources[i]->clone());
 	}
 	return (NULL);

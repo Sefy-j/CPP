@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:36:17 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/09 20:00:43 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/10 14:52:34 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ _inventory()
 	//std::cout << "your party!!" << std::endl;
 }
 
-Character::Character(const Character &other)
+Character::Character(const Character &other) : ICharacter(),
+_inventory()
 {
 	*this = other;
 	//std::cout << "Did I just clone myself?? I'm " << _name;
@@ -50,14 +51,19 @@ Character	&Character::operator=(const Character &other)
 
 	if (this != &other)
 	{
-		_name = other._name;
 		for (i = 0; i < 4; i++)
-			temp[i] = other.getMateria(i)->clone();
+		{
+			if (other.getMateria(i))
+				temp[i] = other.getMateria(i)->clone();
+			else
+				temp[i] = NULL;
+		}
 		for (i = 0; i < 4; i++)
 		{
 			delete _inventory[i];
 			_inventory[i] = temp[i];
 		}
+		_name = other._name;
 	}
 	return (*this);
 }
@@ -84,6 +90,7 @@ void	Character::equip(AMateria *m)
 		std::cout << "Inventory full. Please unequip a materia first" << std::endl;
 		return ;	
 	}
+	//std::cout << "Equiped materia " << m->getType() << " in slot " << i << std::endl;
 	_inventory[i] = m;
 }
 
