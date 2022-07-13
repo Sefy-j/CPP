@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:12:45 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/10 18:58:12 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/11 18:47:22 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ class Bureaucrat
 		void	incrementGrade(int n);
 		void	decrementGrade(int n);
 
+	private:
+
+		Bureaucrat(void);
+		const std::string	_name;
+		int					_grade;
+
 		class GradeTooHighException: public std::exception
 		{
 			public:
@@ -43,13 +49,6 @@ class Bureaucrat
 
 				const char* what(void) const throw();
 		};
-
-
-	private:
-
-		Bureaucrat(void);
-		const std::string	_name;
-		int					_grade;
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);

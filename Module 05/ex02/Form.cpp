@@ -6,16 +6,17 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 18:56:20 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/11 19:31:12 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/11 19:49:40 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(void) : _name("unknown form"), _sgrade(1), _egrade(1), _signed(false) {}
+Form::Form(void) : _name("unknown form"), _sgrade(1), _egrade(1),
+_signed(false), _target("unknown") {}
 
-Form::Form(std::string const name, int sgrade, int egrade) :
-_name(name), _sgrade(sgrade), _egrade(egrade), _signed(false)
+Form::Form(std::string const name, int sgrade, int egrade, std::string const target) :
+_name(name), _sgrade(sgrade), _egrade(egrade), _signed(false), _target(target)
 {
 	if (_sgrade > 150 || _egrade > 150)
 		throw (GradeTooLowException());
@@ -23,8 +24,8 @@ _name(name), _sgrade(sgrade), _egrade(egrade), _signed(false)
 		throw (GradeTooHighException());
 }
 
-Form::Form(const Form &other) : _name(other._name),
-_sgrade(other._sgrade), _egrade(other._egrade)
+Form::Form(const Form &other) : _name(other._name), _sgrade(other._sgrade),
+_egrade(other._egrade), _target(other._target)
 {
 	*this = other;
 }
@@ -58,6 +59,11 @@ bool	Form::getSigned(void) const
 	return (_signed);
 }
 
+std::string	Form::getTarget(void) const
+{
+	return (_target);
+}
+
 const char* Form::GradeTooHighException::what(void) const throw()
 {
 	return ("grade too high");
@@ -66,6 +72,11 @@ const char* Form::GradeTooHighException::what(void) const throw()
 const char* Form::GradeTooLowException::what(void) const throw()
 {
 	return ("grade too low");
+}
+
+const char* Form::NotSignedException::what(void) const throw()
+{
+	return ("form not signed");
 }
 
 void	Form::beSigned(const Bureaucrat &bur)
@@ -81,11 +92,11 @@ void	Form::beSigned(const Bureaucrat &bur)
 std::ostream &operator<<(std::ostream &out, const Form &form)
 {
 	out << "Form name : " << form.getName();
-	out << " , form signing grade : " << form.getSgrade();
-	out << " , form exec grade : " << form.getEgrade();
+	out << " , Form signing grade : " << form.getSgrade();
+	out << " , Form exec grade : " << form.getEgrade();
 	if (form.getSigned())
-		out << " , signed : yes";
+		out << " , Signed : yes";
 	else
-		out << " , signed : no";
+		out << " , Signed : no";
 	return (out);
 }
