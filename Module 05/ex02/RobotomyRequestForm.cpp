@@ -6,21 +6,20 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 20:12:39 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/11 20:15:10 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/13 19:29:52 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-#include <fstream>
 
 RobotomyRequestForm::RobotomyRequestForm(void) :
-Form("unknown", 72, 45, "unknown") {}
+Form("RobotomyRequestForm", 72, 45, "unknown") {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const target) :
 Form("RobotomyRequestForm", 72, 45, target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) :
-Form("RobotomyRequestForm", 72, 45, other._target) {}
+Form("RobotomyRequestForm", 72, 45, other._target)
 {
 	*this = other;
 }
@@ -36,20 +35,11 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	int	random;
-
-	if (!_signed)
-		throw (NotSignedException());
-	if (executor.getGrade() <= _egrade)
-	{
-		srand (time(NULL));
-		random = rand() % 2;
-		if (random == 1)
-			std::cout << "Bzzzpzzpp, bzzrrp... " << this->getTarget() << 
-			" has been robotomized successfully" << std::endl;
-		else
-			std::cout << "Robotomy has been a failure u_u" << std::endl;
-	}
+	checkexec(executor);
+	srand (time(NULL));
+	std::cout << "* drilling noises *" << std::endl;
+	if (rand() % 2)
+		std::cout << _target << " has been robotomized successfully" << std::endl;
 	else
-		throw (GradeTooLowException());
+		std::cout << "Robotomy has been a failure" << std::endl;
 }

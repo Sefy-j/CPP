@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 18:56:20 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/11 19:49:40 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/13 19:22:41 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,22 @@ void	Form::beSigned(const Bureaucrat &bur)
 		throw (GradeTooLowException());
 }
 
+void	Form::checkexec(Bureaucrat const &executor) const
+{
+	if (!_signed)
+		throw (NotSignedException());
+	else if (executor.getGrade() > _egrade)
+		throw (GradeTooLowException());
+}	
+
 std::ostream &operator<<(std::ostream &out, const Form &form)
 {
 	out << "Form name : " << form.getName();
-	out << " , Form signing grade : " << form.getSgrade();
-	out << " , Form exec grade : " << form.getEgrade();
+	out << " , form signing grade : " << form.getSgrade();
+	out << " , form exec grade : " << form.getEgrade();
 	if (form.getSigned())
-		out << " , Signed : yes";
+		out << " , signed : yes";
 	else
-		out << " , Signed : no";
+		out << " , signed : no";
 	return (out);
 }

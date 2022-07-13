@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:12:45 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/11 18:46:52 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/13 17:08:49 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Bureaucrat
 		void	incrementGrade(int n);
 		void	decrementGrade(int n);
 		void	signForm(Form &form);
+		void	executeForm(Form const &form);
 
 	private:
 

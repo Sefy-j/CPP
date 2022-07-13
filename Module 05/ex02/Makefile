@@ -1,4 +1,5 @@
-SRCS	= main.cpp Bureaucrat.cpp Form.cpp
+SRCS	= main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
@@ -6,7 +7,7 @@ SRCSB	=
 
 OBJB	= ${SRCSB:.cpp=.o}
 
-NAME	= form
+NAME	= execute
 
 CXX	= clang++
 

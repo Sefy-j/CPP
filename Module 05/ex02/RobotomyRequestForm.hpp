@@ -6,15 +6,15 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:58:55 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/11 20:12:20 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/13 19:27:08 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
-#include <iostream>
 #include "Form.hpp"
+#include <fstream>
 
 class RobotomyRequestForm: public Form
 {

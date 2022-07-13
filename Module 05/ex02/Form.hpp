@@ -46,6 +46,8 @@ class Form
 		bool				_signed;
 		const std::string	_target;
 
+		void	checkexec(Bureaucrat const & executor) const;
+
 		class GradeTooHighException: public std::exception
 		{
 			public:
