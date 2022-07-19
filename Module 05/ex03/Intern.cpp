@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 18:56:20 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/14 12:36:44 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:22:44 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,32 @@ Intern	&Intern::operator=(const Intern &other)
 	return (*this);
 }
 
+Form	*newShrubbery(std::string const target)
+{
+	(void)target;
+	return (NULL);
+}
+
 Form	*Intern::makeForm(std::string const formname, std::string const target) const
 {
 	int			i;
 	std::string	form[3];
+	Form		*(*ptrf[3])(std::string const);
 
 	form[0] = "ShrubberyCreation";
 	form[1] = "RobotomyRequest";
 	form[2] = "PresidentialPardon";
+	ptrf[0] = &ShrubberyCreationForm::newShrubbery;
+	ptrf[1] = &RobotomyRequestForm::newRobotomy;
+	ptrf[2] = &PresidentialPardonForm::newPresidential;
 	for (i = 0; i < 3; i++)
 	{
 		if (!form[i].compare(formname))
-			break ;
+		{
+			std::cout << "Intern creates " << form[i] << "Form" << std::endl;
+			return (ptrf[i](target));
+		}
 	}
-	switch(i)
-	{
-		case 0: std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
-				return (new ShrubberyCreationForm(target));
-		case 1: std::cout << "Intern creates RobotomyRequestForm" << std::endl;
-				return (new RobotomyRequestForm(target));
-		case 2: std::cout << "Intern creates PresidentialPardonForm" << std::endl;
-				return (new PresidentialPardonForm(target));
-		default: std::cout << "Intern could not create " << formname << " form" << std::endl;
-				return (NULL);
-	}
+	std::cout << "Intern could not create " << formname << " form" << std::endl;
+	return (NULL);
 }

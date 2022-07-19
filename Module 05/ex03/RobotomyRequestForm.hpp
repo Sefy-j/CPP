@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:58:55 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/14 11:05:16 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:18:11 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class RobotomyRequestForm: public Form
 
 		RobotomyRequestForm	&operator=(const RobotomyRequestForm &other);
 
-		void	execute(Bureaucrat const & executor) const;
+		void		execute(Bureaucrat const & executor) const;
+		static Form	*newRobotomy(std::string const target);
 
 	private:
 

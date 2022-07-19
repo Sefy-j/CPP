@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 18:56:20 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/14 11:32:20 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:13:34 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,9 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 				"            .:@:'." << std::endl <<
 				"          .::(@:.   " << std::endl; 
 	outfile.close();
+}
+
+Form	*ShrubberyCreationForm::newShrubbery(std::string const target)
+{
+	return (new ShrubberyCreationForm(target));
 }

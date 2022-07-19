@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:02:57 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/13 17:02:58 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:18:19 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class PresidentialPardonForm: public Form
 
 		PresidentialPardonForm	&operator=(const PresidentialPardonForm &other);
 
-		void	execute(Bureaucrat const & executor) const;
+		void		execute(Bureaucrat const & executor) const;
+		static Form	*newPresidential(std::string const target);
 
 	private:
 

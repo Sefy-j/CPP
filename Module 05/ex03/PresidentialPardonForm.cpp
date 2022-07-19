@@ -6,7 +6,7 @@
 /*   By: jlopez-f <jlopez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 18:56:20 by jlopez-f          #+#    #+#             */
-/*   Updated: 2022/07/14 11:31:40 by jlopez-f         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:13:29 by jlopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,9 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 	checkexec(executor);
 	std::cout << executor.getName() << " executes " << _name << std::endl;
 	std::cout << _target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+}
+
+Form	*PresidentialPardonForm::newPresidential(std::string const target)
+{
+	return (new PresidentialPardonForm(target));
 }
